@@ -107,6 +107,10 @@ This PC needs nothing installed. Everything runs with PowerShell and Edge.
 .\tools\make-demo.ps1      # writes dist\Partnership Review - DEMO.html (made-up data)
 ```
 
+The folder is a Git repository. Every change is a commit; nothing is overwritten without a
+record. The rules for making a change are in [CLAUDE.md](CLAUDE.md), and where the project
+stands is in [docs/STATUS.md](docs/STATUS.md).
+
 To change the tool: edit files in `src\`, run the tests, run the build, and hand out the new
 `dist\Partnership Review.html`. Each person replaces their copy. Their teams and their
 details are separate files and are not touched by an update.
