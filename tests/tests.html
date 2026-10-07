@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Partnership Review tests: running</title>
+<style>
+body{font:14px/1.5 "Segoe UI",system-ui,sans-serif;max-width:980px;margin:32px auto;padding:0 24px;color:#12203A}
+h1{font-size:20px;margin:0 0 4px}
+#summary{font-weight:600;margin:0 0 16px}
+pre{background:#F1F4F8;padding:16px;border-radius:8px;white-space:pre-wrap;font:12.5px/1.55 Consolas,monospace}
+pre.pass{border-left:4px solid #1B7F5A} pre.fail{border-left:4px solid #C8102E}
+#stage{position:absolute;left:-9999px;top:0;width:1060px}
+</style>
+</head>
+<body>
+<h1>Partnership Review tests</h1>
+<p id="summary">running</p>
+<pre id="out">running</pre>
+<div id="stage"></div>
+<!-- the app's own page furniture, off screen, for the tests that drive the working screen -->
+<div id="app" style="position:absolute;left:-9999px;top:0;width:1060px">
+  <div id="bar" class="appbar"></div><div id="home"></div>
+  <div id="drop"><h1 id="droptitle"></h1><div id="err"></div><input type="file" id="file" hidden></div>
+  <div id="report"></div><p id="ver"></p>
+  <button id="exitpresent"></button><div class="modal" id="modal" hidden></div><div class="toast" id="toast" hidden></div>
+</div>
+<script>window.PR_NO_START=true;</script>
+<!--SCRIPTS-->
+<script src="../src/vendor/xlsx.full.min.js"></script>
+<script src="../src/core.js"></script>
+<script src="../src/workspace.js"></script>
+<script src="../src/profile.js"></script>
+<script src="../src/view.js"></script>
+<script src="../src/reconcile.js"></script>
+<script src="../src/edits.js"></script>
+<script src="../src/store.js"></script>
+<script src="../src/assets.js"></script>
+<script src="../src/report.js"></script>
+<script src="../src/ui.js"></script>
+<script src="runner.js"></script>
+<script src="fixtures.js"></script>
+<script src="core.test.js"></script>
+<script src="workspace.test.js"></script>
+<script src="profile.test.js"></script>
+<script src="reconcile.test.js"></script>
+<script src="edits.test.js"></script>
+<script src="store.test.js"></script>
+<script src="report.test.js"></script>
+<script src="ui.test.js"></script>
+<!--/SCRIPTS-->
+<script>runAll();</script>
+</body>
+</html>

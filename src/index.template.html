@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Nothing on this page may be loaded from, or sent to, anywhere else. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Partnership Review — NFM Lending</title>
+<style>
+/*{{styles.css}}*/
+/*{{app.css}}*/
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div id="bar" class="appbar"></div>
+<div id="home"></div>
+
+<div id="drop">
+  <h1 id="droptitle">Team pipeline report</h1>
+  <p>Drop the Encompass export here, or click to choose a file.</p>
+  <p class="sub">Nothing is uploaded. The file is read in this browser and stays on this computer.</p>
+  <div id="err"></div>
+  <input type="file" id="file" accept=".xlsx,.xls" hidden>
+</div>
+
+<div id="report"></div>
+<p class="ver" id="ver"></p>
+
+</div>
+<button class="exitpresent" id="exitpresent" title="Esc">Leave presenter view</button>
+<div class="modal" id="modal" hidden></div>
+<div class="toast" id="toast" hidden></div>
+<script>
+/*{{vendor/xlsx.full.min.js}}*/
+</script>
+<script>
+/*{{assets.js}}*/
+</script>
+<script>
+/*{{core.js}}*/
+/*{{workspace.js}}*/
+/*{{profile.js}}*/
+/*{{view.js}}*/
+/*{{reconcile.js}}*/
+/*{{edits.js}}*/
+/*{{store.js}}*/
+/*{{report.js}}*/
+/*{{ui.js}}*/
+</script>
+</body>
+</html>

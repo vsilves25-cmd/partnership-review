@@ -1,0 +1,17 @@
+# Borrower data must never enter a repository.
+# Encompass exports:
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+# Saved teams and their previous versions:
+*.partnership.json
+*.bak
+# Printed reports:
+*.pdf
+
+# Screenshots of the demo are made-up data, but are build output.
+dist/screens/
+
+# A loan officer's own details (name, NMLS number, photo):
+*.partnership-profile.json

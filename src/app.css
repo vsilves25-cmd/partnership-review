@@ -1,0 +1,161 @@
+/* ============ added for the saved-team version ============ */
+/* Everything above this file is Pipeline Report V16's stylesheet, unchanged. */
+
+/* V16 styled .metric but the markup says .metriccard, so the big number and
+   its caption fell back to body text and the buyer-note style. */
+.metriccard .val{font:600 46px/1 var(--display);color:var(--navy);letter-spacing:.005em;
+  font-variant-numeric:tabular-nums}
+.metriccard .note{font-size:13px;line-height:1.5;color:var(--ink-3);margin-top:var(--s4);
+  border-left:0;padding:0;min-height:0;background:none}
+.note:hover{border-left-color:var(--navy-lt)}
+
+.who{color:var(--ink-3);font-weight:400;font-size:12.5px}
+button{font-family:inherit}
+
+/* ---------- top bar ---------- */
+.appbar{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;
+  margin-bottom:var(--s5);font-size:13px;color:var(--ink-2)}
+.appbar .sp{flex:1}
+.appbar button,.btn{font:inherit;font-size:13px;background:var(--card);border:1px solid var(--rule-2);
+  border-radius:6px;padding:7px 14px;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.appbar button:hover,.btn:hover{border-color:var(--navy);color:var(--navy)}
+.appbar button.primary,.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
+.appbar button.primary:hover,.btn.primary:hover{background:var(--navy-lt);color:#fff}
+.appbar button:disabled,.btn:disabled{opacity:.45;cursor:default;border-color:var(--rule-2);color:var(--ink-3)}
+.appbar .back{border:0;background:none;padding:7px 6px;color:var(--ink-3)}
+.appbar .teamname{font:600 15px/1.2 var(--sans);color:var(--ink)}
+
+.savestate{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-3);
+  padding:4px 10px;border-radius:999px;background:var(--fill)}
+.savestate::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--good);flex-shrink:0}
+.savestate.busy::before{background:var(--cyan)}
+.savestate.warn{background:#FDF3E7;color:#8A5210}
+.savestate.warn::before{background:#C77A1B}
+.savestate.bad{background:#FBE9EC;color:var(--alert);font-weight:600}
+.savestate.bad::before{background:var(--alert)}
+
+.banner{margin-bottom:var(--s4);padding:var(--s3) var(--s4);border-radius:8px;font-size:13px;line-height:1.55;
+  background:#FDF3E7;border-left:3px solid #C77A1B;color:var(--ink-2);display:flex;gap:var(--s3);
+  align-items:center;flex-wrap:wrap}
+.banner.bad{background:#FBE9EC;border-left-color:var(--alert)}
+.banner .sp{flex:1}
+.banner b{color:var(--ink)}
+
+/* ---------- home ---------- */
+.homehead{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s5);margin-bottom:var(--s5)}
+.homehead h1{font:600 36px/1.1 var(--display);margin:0;color:var(--ink)}
+.homehead p{margin:var(--s2) 0 0;color:var(--ink-3);font-size:13.5px}
+.homehead .acts{display:flex;gap:var(--s3);flex-shrink:0}
+.storage{background:var(--card);border-radius:12px;padding:var(--s4) var(--s5);box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:var(--s4);font-size:13.5px;line-height:1.55;color:var(--ink-2);
+  margin-bottom:var(--s5);flex-wrap:wrap}
+.storage .sp{flex:1}
+.storage.need{border-left:4px solid var(--cyan)}
+.storage b{color:var(--ink)}
+.teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--s4);margin-bottom:var(--s5)}
+.team{background:var(--card);border-radius:12px;padding:var(--s5);box-shadow:var(--shadow);cursor:pointer;
+  border:1px solid transparent;transition:border-color .15s,transform .15s;display:flex;gap:var(--s4);align-items:center;
+  text-align:left;font:inherit;color:inherit;width:100%}
+.team:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.team .pic{width:54px;height:54px;border-radius:50%;flex-shrink:0;background:var(--tint) center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;font:600 18px/1 var(--display);color:var(--navy)}
+.team .nm{font:600 16px/1.25 var(--sans);color:var(--ink)}
+.team .meta{font-size:12.5px;line-height:1.5;color:var(--ink-3);margin-top:2px}
+.team.broken{cursor:default;border-color:#F0C2C9}
+.team.broken:hover{transform:none}
+.team .tagm{margin-left:0;margin-top:4px}
+.empty{color:var(--ink-3);font-size:14px;margin:0 0 var(--s5)}
+#drop.small{padding:48px var(--s6)}
+#drop.small h1{font-size:24px}
+
+/* ---------- dialogs ---------- */
+.modal{position:fixed;inset:0;background:rgba(18,32,58,.45);display:flex;align-items:flex-start;
+  justify-content:center;padding:6vh var(--s5);z-index:50;overflow:auto}
+.modal[hidden]{display:none}
+.dialog{background:var(--card);border-radius:12px;box-shadow:var(--shadow-lg);padding:var(--s6);
+  max-width:640px;width:100%;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.dialog h2{margin-bottom:var(--s3)}
+.dialog h3{font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  margin:var(--s5) 0 var(--s2)}
+.dialog p{margin:0 0 var(--s3)}
+.dialog ul{margin:0;padding-left:20px}
+.dialog li{margin-bottom:4px}
+.dialog .acts{display:flex;justify-content:flex-end;gap:var(--s3);margin-top:var(--s5)}
+.dialog input[type=text]{font:inherit;width:100%;padding:8px 10px;border:1px solid var(--rule-2);border-radius:6px}
+.dialog input[type=text]:focus{outline:none;border-color:var(--cyan)}
+.dialog label.opt{display:flex;gap:var(--s3);align-items:flex-start;padding:8px 0;cursor:pointer;
+  border-bottom:1px solid var(--rule)}
+.dialog label.opt:last-of-type{border-bottom:0}
+.dialog .warnline{background:#FDF3E7;border-left:3px solid #C77A1B;padding:8px 12px;border-radius:6px;margin-bottom:8px}
+.dialog .warnline.bad{background:#FBE9EC;border-left-color:var(--alert)}
+.dialog .scroll{max-height:180px;overflow:auto;border:1px solid var(--rule);border-radius:8px;padding:10px 14px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:11px 18px;border-radius:8px;font-size:13.5px;box-shadow:var(--shadow-lg);z-index:60;max-width:80vw}
+.toast[hidden]{display:none}
+.toast.bad{background:var(--alert)}
+
+/* ---------- since we last met ---------- */
+.since .aggrid{margin-bottom:var(--s4)}
+.sincelist{margin:0;padding-left:20px}
+.sincelist li{font-size:14px;line-height:1.6;color:var(--ink-2);margin-bottom:4px}
+.sincelist b{color:var(--ink);font-weight:600}
+
+/* ---------- under each buyer: suggestion, private note, disagreement ---------- */
+.sug,.conf{font-size:12.5px;line-height:1.5;color:var(--ink-3);padding:5px 0 0 12px}
+.sug .lab{font-style:italic}
+.conf{color:#8A5210}
+.conf b{color:var(--ink)}
+.pnote{font-size:12.5px;line-height:1.5;color:#6B5B2A;outline:none;margin-top:5px;
+  border-left:2px dashed #D9C88F;padding:1px 0 1px 10px;min-height:18px;background:#FFFBEA;border-radius:0 3px 3px 0}
+.pnote:empty{display:none}
+tr.buyer:hover + tr.noteline .pnote:empty,tr.noteline:hover .pnote:empty,.pnote:focus{display:block}
+.pnote:empty::before{content:attr(data-ph);color:#B5A66E;font-style:italic}
+.pnote:focus{border-left-style:solid;border-left-color:#C7A93B}
+
+tr.edited td:first-child{padding-left:10px}
+
+/* ---------- for the loan officer only ---------- */
+.internal{border:2px dashed #D9C88F;background:#FFFDF4;box-shadow:none}
+.internal .inthead{display:flex;align-items:baseline;gap:var(--s3);flex-wrap:wrap}
+.internal h3{font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  margin:var(--s5) 0 var(--s3)}
+.watchint{margin:0;padding-left:20px}
+.watchint li{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin-bottom:var(--s2)}
+.internal select{font:inherit;font-size:13px;border:1px solid var(--rule-2);border-radius:5px;background:#fff;padding:3px 6px}
+.panel [contenteditable]{border:1px solid var(--rule-2);border-radius:5px;background:#fff;padding:2px 8px;margin:0 2px;
+  min-width:44px;min-height:24px;display:inline-block;vertical-align:middle;font-weight:600}
+.panel [data-bench="source"],.panel [data-bench="period"]{min-width:190px;font-weight:400}
+.panel [data-bench="source"]:empty::before{content:"where the numbers come from";color:var(--ink-3)}
+.panel [data-bench="period"]:empty::before{content:"the period they cover";color:var(--ink-3)}
+.ver{font-size:11.5px;color:var(--ink-3);text-align:center;margin:var(--s6) 0 0}
+.panel input[type=date]{font:inherit;font-size:12.5px;border:1px solid var(--rule-2);border-radius:5px;padding:2px 6px}
+
+/* ---------- my details ---------- */
+[data-profile]:empty::before{content:attr(data-ph);opacity:.6;font-style:italic;font-weight:400}
+.hero [data-profile]{min-width:60px;display:inline-block}
+.formrow{display:flex;gap:var(--s4);align-items:center;flex-wrap:wrap;margin-bottom:var(--s3)}
+.formrow .grow{flex:1;min-width:220px}
+.dialog label{display:block;font-size:12.5px;color:var(--ink-3);margin:0 0 var(--s3)}
+.dialog label input[type=text]{margin-top:4px;color:var(--ink)}
+.dialog .pic{width:96px;height:96px;border-radius:50%;flex-shrink:0;background:var(--tint) center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3)}
+.dialog .acts .sp{flex:1}
+/* ---------- presenter view ---------- */
+.exitpresent{position:fixed;top:14px;right:14px;z-index:40;opacity:0;transition:opacity .2s;
+  font:inherit;font-size:12px;background:rgba(18,32,58,.82);color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer}
+body.presenting .exitpresent{display:block}
+body.presenting:hover .exitpresent{opacity:.55}
+body.presenting .exitpresent:hover{opacity:1}
+body:not(.presenting) .exitpresent{display:none}
+body.presenting .appbar,body.presenting .banner{display:none}
+body.presenting th.sortable{cursor:default}
+body.presenting th .arrow{display:none}
+
+@media print{
+  .noprint,.appbar,.banner,.modal,.toast,.exitpresent,#home{display:none!important}
+  .avatar:not(.set),.chip:not(.set){display:none}
+  .since,.sincelist{page-break-inside:avoid}
+}
+@media (max-width:760px){
+  .homehead{flex-direction:column;align-items:flex-start}
+}

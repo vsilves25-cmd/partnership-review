@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Save probe</title>
+<style>
+body{font:15px/1.6 "Segoe UI",system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 24px;color:#12203A}
+h1{font-size:22px}
+button{font:inherit;padding:10px 18px;border-radius:8px;border:1px solid #003087;background:#003087;color:#fff;cursor:pointer}
+pre{background:#F1F4F8;padding:16px;border-radius:8px;white-space:pre-wrap;word-break:break-word}
+.ok{color:#1B7F5A;font-weight:600}.no{color:#C8102E;font-weight:600}
+</style>
+</head>
+<body>
+<h1>Can this PC's Edge save for the Partnership Review tool?</h1>
+<p>This page stores nothing but a test marker. Step 1 runs by itself. For step 2, click the
+button, pick any empty folder, and allow the request.</p>
+<p><button id="go">Step 2: test saving into a folder</button></p>
+<pre id="out">pending</pre>
+<script>
+/* Reports which of the three save layers work for a page opened from disk.
+   The automatic part is also run headless, twice, to see whether stored text
+   survives a browser restart. */
+var R={href:location.protocol,secure:window.isSecureContext,
+       dirPicker:typeof window.showDirectoryPicker==="function",
+       savePicker:typeof window.showSaveFilePicker==="function",
+       persistApi:!!(navigator.storage&&navigator.storage.persist),
+       ls:{},idb:{},folder:"not run"};
+function show(){document.getElementById("out").textContent=JSON.stringify(R,null,1);}
+
+try{
+  R.ls.before=localStorage.getItem("pr.probe");
+  var stamp=String(Date.now());
+  localStorage.setItem("pr.probe",stamp);
+  R.ls.wrote=localStorage.getItem("pr.probe")===stamp;
+}catch(e){R.ls.error=String(e.message||e);}
+
+try{
+  var open=indexedDB.open("pr-probe",1);
+  open.onupgradeneeded=function(){open.result.createObjectStore("kv");};
+  open.onerror=function(){R.idb.error=String(open.error);R.idb.done=true;show();};
+  open.onsuccess=function(){
+    var db=open.result,tx=db.transaction("kv","readwrite"),st=tx.objectStore("kv");
+    var g=st.get("marker");
+    g.onsuccess=function(){
+      R.idb.before=g.result||null;
+      st.put(String(Date.now()),"marker");
+    };
+    tx.oncomplete=function(){R.idb.wrote=true;R.idb.done=true;show();};
+    tx.onerror=function(){R.idb.error=String(tx.error);R.idb.done=true;show();};
+  };
+}catch(e){R.idb.error=String(e.message||e);R.idb.done=true;}
+show();
+
+document.getElementById("go").onclick=async function(){
+  try{
+    if(!R.dirPicker){R.folder="not supported in this browser";show();return;}
+    var dir=await window.showDirectoryPicker({mode:"readwrite"});
+    var fh=await dir.getFileHandle("probe-test.partnership.json",{create:true});
+    var w=await fh.createWritable();
+    await w.write(JSON.stringify({probe:true,at:new Date().toISOString()}));
+    await w.close();
+    var back=await (await fh.getFile()).text();
+    await dir.removeEntry("probe-test.partnership.json");
+    R.folder=back.indexOf('"probe":true')>=0?"WORKS: wrote, read back and removed a test file in '"+dir.name+"'":"wrote but could not read back";
+  }catch(e){R.folder="FAILED: "+(e.name||"")+" "+(e.message||e);}
+  show();
+};
+</script>
+</body>
+</html>
