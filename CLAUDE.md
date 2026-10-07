@@ -40,7 +40,12 @@ The owner's instruction, 7 October 2026: no more overwriting files. In practice:
   the built file always matches the source.
 - Bump `APP_VERSION` in `src\core.js` and add a `docs\CHANGELOG.md` entry for anything a user
   would notice. Tag releases `vX.Y.Z`.
-- Afterwards, tell the owner what changed in plain words. Do not push anywhere unless asked.
+- Afterwards, push to `origin` (the owner's private GitHub repository) so every machine sees
+  the change, and tell the owner what changed in plain words. Never push anywhere else, and
+  never make the repository public.
+- On a new machine, clone `origin` and open the session in the cloned folder. Real exports
+  and team files are not in the repository and must not be copied to a machine that is not
+  NFM's.
 - If Git is not available on a machine, take a dated zip of this folder first and say so.
 
 ## Working here

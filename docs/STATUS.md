@@ -9,6 +9,9 @@ Last updated: 7 October 2026.
 
 - **Version 18.0.0**, tagged `v18.0.0`. Person-neutral: each loan officer enters their own
   name, NMLS number and photo. 135 automated tests pass.
+- **The repository's home is a private GitHub repository** belonging to the owner (`origin`;
+  `git remote -v` shows it). First pushed 7 October 2026. Checked from outside without
+  signing in: it is not visible.
 - Version control began with 18.0.0. Builds 17.0.0 and 17.0.1 were overwritten and are not
   recoverable. `Pipeline Report V13` to `V16` exist only on the first build laptop, beside
   this folder.
@@ -35,8 +38,6 @@ presenter view, a copy opened from another location, a PC restart. All passed.
 2. **Compliance footer.** The report shows the officer's name and NMLS number. It has no
    company NMLS number, Equal Housing Lender mark or disclaimer. To be raised with NFM
    before a wide rollout.
-3. **Where the repository travels.** A private remote was discussed and not decided. Nothing
-   has been pushed anywhere.
 
 ## Known limits that matter for other loan officers
 
