@@ -1,4 +1,4 @@
-# Giving the tool to other loan officers
+# Loan officers - ask me for help or read below
 
 From version 18 the tool carries nobody's name. It is NFM-branded, and each loan officer adds
 their own name, NMLS number and photo the first time they open it.
@@ -26,7 +26,7 @@ replaced in one place.
 2. Open `Partnership Review.html`.
 3. Click **Set up my details**: name, NMLS number, photo.
 4. Click **Choose a folder** and pick where their teams will live. It must be somewhere NFM
-   approves for borrower data.
+   approves for borrower data - locally on your machine.
 5. Drop an Encompass export on the page.
 
 The full guide is the "Using it" section of the [README](../README.md).
@@ -46,7 +46,7 @@ controls panel lists whatever their export is missing.
 
 **The standard background is a skyline photo of one city**, the one V16 was built with. A
 loan officer in another market can replace it under **My details**, or it can be swapped for
-everyone by changing `HERO_BG` in `src\assets.js` and rebuilding.
+everyone by changing `HERO_BG` in `src\assets.js` and rebuilding - connect with me for more details
 
 The stage names (`Started`, `Ready for Pack Out`, `Processing`, `Approval`, `Resubmittal`,
 `CTC`, `Rec'd by Closer`, `Funding`) are the ones in the exports this was built from. If
@@ -85,25 +85,6 @@ all pages opened from disk, so a new copy finds the same teams folder wherever i
 
 [RECOVERY.md](RECOVERY.md) covers getting work back. Do not ask for a team file to be sent
 for debugging unless it goes by an approved route: it holds borrower data.
-
-## Clear with NFM before a wide rollout
-
-These are decisions for NFM, not things the tool can settle.
-
-- **Marketing compliance.** The report is material a loan officer gives to referral partners.
-  It shows the officer's name and NMLS number, and reminds them while either is missing. It
-  does not carry a company NMLS number, an Equal Housing Lender mark or a disclaimer. If
-  NFM requires any of those on partner-facing material, they should be added to the footer
-  once, for everyone.
-- **The "our average" comparison.** It prints only with a stated source and period. Decide
-  whether officers may compare against their own pipeline or must use a company figure.
-- **Where borrower data may be kept.** Team files are not encrypted and hold borrower names,
-  loan amounts and notes. Say which folders are acceptable (for example an NFM OneDrive).
-- **IT.** The tool is one HTML file that makes no network connection, and its security
-  policy forbids any. It uses Edge's folder access and browser storage. Some managed
-  configurations switch those off; `probe.html` shows whether a given PC allows them.
-- **Sending the PDF.** A printed report lists borrowers by name. How it is sent to a realtor
-  is outside the tool.
 
 ## Limits to mention
 
