@@ -92,10 +92,10 @@ simplest way to fill it in is **Work them out from a full pipeline export**.
 More: [docs/ENCOMPASS-EXPORT.md](docs/ENCOMPASS-EXPORT.md) for how to set up the export,
 [docs/RECOVERY.md](docs/RECOVERY.md) if something goes wrong.
 
-## Handing it to other loan officers
+## loan officers
 
 See [docs/ROLLOUT.md](docs/ROLLOUT.md): what to send, what each person does, how to update
-everyone, and what to clear with NFM first.
+everyone.
 
 ## For whoever maintains it
 
